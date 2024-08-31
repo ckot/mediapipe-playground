@@ -70,6 +70,7 @@ class Segmenter:
         self._masks = seg_model_data["masks"]
         segmenterOptions = vision.ImageSegmenterOptions(
             base_options=python.BaseOptions(model_asset_path=seg_model_data["path"]),
+            output_category_mask=True
         )
         self._segmenter = vision.ImageSegmenter.create_from_options(segmenterOptions)
 
@@ -93,6 +94,8 @@ class Segmenter:
         segmentation_result = self._segmenter.segment(mp_img)
         print(type(segmentation_result))
         print(segmentation_result)
+        # print(type(segmentation_result.confidence_masks))
+        # print(type(segmentation_result.confidence_masks[0]))
         # categories = segmentation_result[0].numpy_view() # img_size x img_size of 0 - num classes
         # landmarks_mask = np.zeros(categories.shape, dtype=np.uint8)
         # detection_result = self._detector.detect(resized_image)
