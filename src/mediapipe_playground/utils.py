@@ -94,7 +94,7 @@ class Segmenter:
         mp_img = mp.Image(image_format=mp.ImageFormat.SRGB, data=resized_image)
         segmentation_result = self._segmenter.segment(mp_img)
         print(segmentation_result)
-        # categories = segmentation_result.category_mask[0].numpy_view() # img_size x img_size of 0 - num classes
+        categories = segmentation_result.category_mask.numpy_view() # img_size x img_size of 0 - num classes
         # # landmarks_mask = np.zeros(categories.shape, dtype=np.uint8)
         # # detection_result = self._detector.detect(resized_image)
         # # grab landmarks for 1st face only
