@@ -1,0 +1,26 @@
+[project]
+name = "mediapipe-playground"
+version = "0.1.0"
+authors = [
+    { name="Scott Silliman", email="scott.t.silliman@gmail.com"}
+]
+description = "some apps to play around with mediapipe's APIs"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "mediapipe",
+    "gradio"
+]
+[project.scripts]
+facefun = "mediapipe_playground.cli:app"
+[project.urls]
+Homepage = "https://github.com/ckot/mediapipe-playground"
+Issues = "https://github.com/ckot/mediapipe-playground/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
