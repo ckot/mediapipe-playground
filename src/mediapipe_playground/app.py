@@ -3,7 +3,7 @@
 import numpy as np
 import gradio as gr
 
-from mediapipe_playground.utils import get_segmenter, MULTICLASS_SEGMENTER, Segmenter
+from mediapipe_playground.utils import get_segmenter, FACE_LANDMARK_DETECTOR, MULTICLASS_SEGMENTER, Segmenter
 
 BACKGROUND = 0
 HAIR = 1
@@ -52,6 +52,6 @@ def segment_image(input_img):
 
 
 def app():
-    Segmenter(MULTICLASS_SEGMENTER)
+    Segmenter(MULTICLASS_SEGMENTER, FACE_LANDMARK_DETECTOR)
     demo = gr.Interface(segment_image, gr.Image(height=256, width=256), "image")
     demo.launch()
