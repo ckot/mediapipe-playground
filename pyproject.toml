@@ -1,6 +1,6 @@
 [project]
 name = "mediapipe-playground"
-version = "0.1.11"
+version = "0.1.12"
 authors = [
     { name="Scott Silliman", email="scott.t.silliman@gmail.com"}
 ]
