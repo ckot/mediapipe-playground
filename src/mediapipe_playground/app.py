@@ -3,7 +3,7 @@
 import numpy as np
 import gradio as gr
 
-from .utils import get_segmenter, MULTICLASS_SEGMENTER, Segmenter
+from mediapipe_playground.utils import get_segmenter, MULTICLASS_SEGMENTER, Segmenter
 
 BACKGROUND = 0
 HAIR = 1
