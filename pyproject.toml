@@ -13,7 +13,8 @@ classifiers = [
 ]
 dependencies = [
     "mediapipe",
-    "gradio"
+    "gradio",
+    "numpy"
 ]
 [project.scripts]
 facefun = "mediapipe_playground.cli:app"
