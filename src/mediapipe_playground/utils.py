@@ -70,7 +70,8 @@ class Segmenter:
         self._masks = seg_model_data["masks"]
         segmenterOptions = vision.ImageSegmenterOptions(
             base_options=python.BaseOptions(model_asset_path=seg_model_data["path"]),
-            output_category_mask=True
+            output_category_mask=True,
+            output_confidence_masks=False,
         )
         self._segmenter = vision.ImageSegmenter.create_from_options(segmenterOptions)
 
