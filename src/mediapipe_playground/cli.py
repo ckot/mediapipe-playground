@@ -1,4 +1,4 @@
-from mediapipe_playground import app
+from mediapipe_playground.app import app
 
 if __name__ == "__main__":
     app()

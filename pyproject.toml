@@ -18,6 +18,7 @@ dependencies = [
 ]
 [project.scripts]
 facefun = "mediapipe_playground.cli:app"
+
 [project.urls]
 Homepage = "https://github.com/ckot/mediapipe-playground"
 Issues = "https://github.com/ckot/mediapipe-playground/issues"
