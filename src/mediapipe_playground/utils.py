@@ -64,7 +64,7 @@ class Segmenter:
     def __init__(self, segmenter_model_name, landmarker_model_name):
         global SEGMENTER
         self.__ensure_model_downloaded(segmenter_model_name)
-        # self.__ensure_model_downloaded(landmarker_model_name)
+        self.__ensure_model_downloaded(landmarker_model_name)
         seg_model_data = MODELS[segmenter_model_name]
         self._img_size = (seg_model_data["img_size"], seg_model_data["img_size"])
         self._masks = seg_model_data["masks"]
@@ -91,16 +91,18 @@ class Segmenter:
         ret_val = {}
         mp_img = mp.Image(image_format=mp.ImageFormat.SRGB, data=resized_image)
         segmentation_result = self._segmenter.segment(mp_img)
-        categories = segmentation_result[0].numpy_view() # img_size x img_size of 0 - num classes
-        landmarks_mask = np.zeros(categories.shape, dtype=np.uint8)
+        print(type(segmentation_result))
+        print(segmentation_result)
+        # categories = segmentation_result[0].numpy_view() # img_size x img_size of 0 - num classes
+        # landmarks_mask = np.zeros(categories.shape, dtype=np.uint8)
         # detection_result = self._detector.detect(resized_image)
         # grab landmarks for 1st face only
         # face_landmarks = detection_result.face_landmarks[0]
         # print("face_landmarks", dir(face_landmarks))
         # convert categories img to N images of same shape of 0 or 1
         # mapped to their category name
-        for cat_id, mask_name in enumerate(self._masks):
-            ret_val[mask_name] = (categories == cat_id).astype(int)
+        # for cat_id, mask_name in enumerate(self._masks):
+        #     ret_val[mask_name] = (categories == cat_id).astype(int)
 
         return ret_val
 

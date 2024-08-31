@@ -41,14 +41,15 @@ def segment_image(input_img):
     seg = get_segmenter()
     resized_img = seg.resize_image(input_img)
     masks = seg.segment_image(resized_img)
-    zeros = np.zeros(resized_img.shape, dtype=np.uint8)
-    output_img = resized_img.copy()
-    for mask_name, mask in masks.items():
-        color_mask = zeros.copy()
-        color_mask[:] = COLORS_BY_NAME[mask_name]
-        cond = np.stack((mask,) * 3, axis=-1) == 1
-        output_img = np.where(cond, color_mask, output_img)
-    return output_img
+    # zeros = np.zeros(resized_img.shape, dtype=np.uint8)
+    # output_img = resized_img.copy()
+    # for mask_name, mask in masks.items():
+    #     color_mask = zeros.copy()
+    #     color_mask[:] = COLORS_BY_NAME[mask_name]
+    #     cond = np.stack((mask,) * 3, axis=-1) == 1
+    #     output_img = np.where(cond, color_mask, output_img)
+    return input_img
+    # return output_img
 
 
 def app():
