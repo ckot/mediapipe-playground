@@ -54,4 +54,4 @@ def segment_image(input_img):
 def app():
     Segmenter(MULTICLASS_SEGMENTER, FACE_LANDMARK_DETECTOR)
     demo = gr.Interface(segment_image, gr.Image(height=256, width=256), "image")
-    demo.launch()
+    demo.launch(share=True)
