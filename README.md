@@ -1,2 +1,3 @@
 # mediapipe-playground
-gradio app to play around with mediapipe computer vision stuff
+
+gradio app to play around with mediapipe vision APIs
