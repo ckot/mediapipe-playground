@@ -106,7 +106,7 @@ class Segmenter:
             x = np.floor(lm.x * width).astype(int)
             y = np.floor(lm.y * height).astype(int)
             print(f"{i}: ({lm.x}, {lm.y}) => ({x},{y})")
-            landmarks_mask[x, y] = 1
+            landmarks_mask[y,x] = 1
         print(landmarks_mask)
         # convert categories img to N images of same shape of 0 or 1
         # mapped to their category name
