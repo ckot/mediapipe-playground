@@ -104,6 +104,7 @@ class Segmenter:
             print(i, lm)
             x = np.floor(lm.x * self._img_size[0]).astype(int)
             y = np.floor(lm.x * self._img_size[1]).astype(int)
+            print("demornalized=",x,y)
             landmarks_mask[x, y] = 1
         print(landmarks_mask)
         # grab landmarks for 1st face only
