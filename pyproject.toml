@@ -1,6 +1,6 @@
 [project]
 name = "mediapipe-playground"
-version = "0.1.13"
+version = "0.2.0"
 authors = [
     { name="Scott Silliman", email="scott.t.silliman@gmail.com"}
 ]
@@ -12,8 +12,9 @@ classifiers = [
     "Operating System :: OS Independent"
 ]
 dependencies = [
-    "mediapipe",
     "gradio",
+    "httpx",
+    "mediapipe",
     "numpy"
 ]
 [project.scripts]
