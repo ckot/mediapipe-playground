@@ -94,7 +94,7 @@ class Segmenter:
         mp_img = mp.Image(image_format=mp.ImageFormat.SRGB, data=resized_image)
         segmentation_result = self._segmenter.segment(mp_img)
         categories = segmentation_result.category_mask.numpy_view() # img_size x img_size of 0 - num classes
-        landmarks_mask = np.zeros(categories.shape, dtype=np.uint8)
+        landmarks_mask = np.zeros(self._img_size, dtype=np.uint8)
         detection_result = self._detector.detect(mp_img)
         # landmarks are normalized (0-1) 3d ignore z coord and
         # multiply x * width and y * height
