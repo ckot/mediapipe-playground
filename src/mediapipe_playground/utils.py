@@ -98,7 +98,8 @@ class Segmenter:
         detection_result = self._detector.detect(mp_img)
         # landmarks are normalized (0-1) 3d ignore z coord and
         # multiply x * width and y * height
-        for lm in detection_result.face_landmarks:
+        for i, lm in enumerate(detection_result.face_landmarks, start=1):
+            print(i, lm)
             x = lm.x * self._img_size[0]
             y = lm.x * self._img_size[1]
             landmarks_mask[x][y] = 1
