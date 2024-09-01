@@ -102,8 +102,8 @@ class Segmenter:
         # print(len(detection_result.face_landmarks))
         for i, lm in enumerate(detection_result.face_landmarks[0], start=1):
             print(i, lm)
-            x = lm.x * self._img_size[0]
-            y = lm.x * self._img_size[1]
+            x = np.floor(lm.x * self._img_size[0]).astype(int)
+            y = np.floor(lm.x * self._img_size[1]).astype(int)
             landmarks_mask[x, y] = 1
         print(landmarks_mask)
         # grab landmarks for 1st face only
