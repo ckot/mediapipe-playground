@@ -113,6 +113,7 @@ class Segmenter:
         # mapped to their category name
         for cat_id, mask_name in enumerate(self._masks):
             ret_val[mask_name] = (categories == cat_id).astype(int)
+        ret_val["landmarks"] = np.copy(landmarks_mask)
         return ret_val
 
     def __ensure_model_downloaded(self, model_name):

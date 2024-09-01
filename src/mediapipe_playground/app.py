@@ -19,13 +19,15 @@ FACE_COLOR = (255, 204, 153) # pastel orange
 CLOTHES_COLOR = (0, 128, 255) # blue
 OTHER_COLOR = (153,  51, 255) # purple
 MASK_COLOR = (255, 255, 255) # white
+LM_COLOR = (0, 255, 0) # green
 COLORS = [
     BG_COLOR,
     HAIR_COLOR,
     BODY_COLOR,
     FACE_COLOR,
     CLOTHES_COLOR,
-    OTHER_COLOR
+    OTHER_COLOR,
+    LM_COLOR
 ]
 
 COLORS_BY_NAME = {
@@ -34,7 +36,8 @@ COLORS_BY_NAME = {
     "body_skin": BODY_COLOR,
     "face_skin": FACE_COLOR,
     "clothes": CLOTHES_COLOR,
-    "other": OTHER_COLOR
+    "other": OTHER_COLOR,
+    "landmarks": LM_COLOR
 }
 
 def segment_image(input_img):
