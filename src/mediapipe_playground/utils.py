@@ -98,18 +98,16 @@ class Segmenter:
         detection_result = self._detector.detect(mp_img)
         # landmarks are normalized (0-1) 3d ignore z coord and
         # multiply x * width and y * height
-        # print(type(detection_result.face_landmarks))
-        # print(len(detection_result.face_landmarks))
-        for i, lm in enumerate(detection_result.face_landmarks[0], start=1):
-            print(i, lm)
-            x = np.floor(lm.x * self._img_size[0]).astype(int)
-            y = np.floor(lm.y * self._img_size[1]).astype(int)
-            print("demornalized=",x,y)
+        width = self._img_size[0]
+        height = self._img_size[1]
+        # grab landmarks for 1st face only
+        face_landmarks = detection_result.face_landmarks[0]
+        for i, lm in enumerate(face_landmarks, start=1):
+            x = np.floor(lm.x * width).astype(int)
+            y = np.floor(lm.y * height).astype(int)
+            print(f"{i}: ({lm.x}, {lm.y}) => ({x},{y})")
             landmarks_mask[x, y] = 1
         print(landmarks_mask)
-        # grab landmarks for 1st face only
-        # face_landmarks = detection_result.face_landmarks[0]
-        # print("face_landmarks", dir(face_landmarks))
         # convert categories img to N images of same shape of 0 or 1
         # mapped to their category name
         for cat_id, mask_name in enumerate(self._masks):
