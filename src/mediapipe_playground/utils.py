@@ -99,6 +99,7 @@ class Segmenter:
         # landmarks are normalized (0-1) 3d ignore z coord and
         # multiply x * width and y * height
         print(type(detection_result.face_landmarks))
+        print(len(detection_result.face_landmarks))
         for i, lm in enumerate(detection_result.face_landmarks, start=1):
             print(i, lm)
             x = lm.x * self._img_size[0]
