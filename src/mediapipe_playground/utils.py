@@ -96,7 +96,13 @@ class Segmenter:
         categories = segmentation_result.category_mask.numpy_view() # img_size x img_size of 0 - num classes
         landmarks_mask = np.zeros(categories.shape, dtype=np.uint8)
         detection_result = self._detector.detect(mp_img)
-        print(detection_result)
+        # landmarks are normalized (0-1) 3d ignore z coord and
+        # multiply x * width and y * height
+        for lm in detection_result.face_landmarks:
+            x = lm.x * self._img_size[0]
+            y = lm.x * self._img_size[1]
+            landmarks_mask[x][y] = 1
+        print(landmarks_mask)
         # grab landmarks for 1st face only
         # face_landmarks = detection_result.face_landmarks[0]
         # print("face_landmarks", dir(face_landmarks))
